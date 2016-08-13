@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p2  http://www.imsglobal.org/xsd/qti/qtiv2p2/imsqti_v2p2.xsd" identifier="gapMatch" title="Позвоночные 1" adaptive="false" timeDependent="false">
+	<responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair">
+		<correctResponse>
+			<value>A G1 </value>
+			<value>B G2</value>
+			<value>C G3</value>
+			<value>D G4</value>
+		</correctResponse>
+		<mapping defaultValue="-1" lowerBound="0">
+			<mapEntry mapKey="A G1" mappedValue="1"/>
+			<mapEntry mapKey="B G2" mappedValue="1"/>
+			<mapEntry mapKey="C G3" mappedValue="1"/>
+			<mapEntry mapKey="D G4" mappedValue="2"/>
+		</mapping>
+	</responseDeclaration>
+	<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+	<itemBody>
+		<gapMatchInteraction responseIdentifier="RESPONSE" shuffle="false">
+			<prompt>Вставьте пропущенные слова.</prompt>
+			<gapText identifier="A" matchMax="1">позвоночник</gapText>
+			<gapText identifier="B" matchMax="1">череп</gapText>
+			<gapText identifier="C" matchMax="1">головной мозг</gapText>
+			<gapText identifier="D" matchMax="1">конечностей</gapText>
+			<gapText identifier="E" matchMax="1">лап</gapText>
+			<gapText identifier="F" matchMax="1">хорда</gapText>
+			<gapText identifier="H" matchMax="1">копчик</gapText>
+			<gapText identifier="I" matchMax="1">ног</gapText>
+			<gapText identifier="J" matchMax="1">спинной мозг</gapText>
+			<blockquote>
+				<p>Позвоночные - высокоорганизованные животные, имеющие внутренний осевой скелет - <gap identifier="G1"/>. У них есть <gap identifier="G2"/> С челюстями, защищающей  <gap identifier="G3"/> и две пары  <gap identifier="G4"/> для активного передвижения.</p>
+			</blockquote>
+		</gapMatchInteraction>
+	</itemBody>
+	<responseProcessing template="http://www.imsglobal.org/question/qti_v2p2/rptemplates/map_response"/>
+</assessmentItem>

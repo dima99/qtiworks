@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p2  http://www.imsglobal.org/xsd/qti/qtiv2p2/imsqti_v2p2.xsd"
+	identifier="associate" title="Живой организм: строение и изучение 3" adaptive="false" timeDependent="false">
+	<responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="pair">
+		<correctResponse>
+			<value>CAT R</value>
+			<value>FROG M</value>
+			<value>PUMA S</value>
+			<value>BIRD N</value>
+		</correctResponse>
+		<mapping defaultValue="0">
+			<mapEntry mapKey="CAT R" mappedValue="1"/>
+			<mapEntry mapKey="FROG M" mappedValue="1"/>
+			<mapEntry mapKey="PUMA S" mappedValue="1"/>
+			<mapEntry mapKey="BIRD N" mappedValue="1"/>
+		</mapping>
+	</responseDeclaration>
+	<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+	<itemBody>
+		<associateInteraction responseIdentifier="RESPONSE" shuffle="true" maxAssociations="4">
+			<prompt>Установите соответствие</prompt>
+			<simpleAssociableChoice identifier="CAT" matchMax="1"><p><img src="../c.png" alt="Кошка"/></p></simpleAssociableChoice>
+			<simpleAssociableChoice identifier="FROG" matchMax="1"><p><img src="../f.png" alt="Лягушка"/></p></simpleAssociableChoice>
+			<simpleAssociableChoice identifier="PUMA" matchMax="1"><p><img src="../p.png" alt="Пума"/></p></simpleAssociableChoice>
+			<simpleAssociableChoice identifier="BIRD" matchMax="1"><p><img src="../b.png" alt="Птица"/></p></simpleAssociableChoice>
+			<simpleAssociableChoice identifier="R" matchMax="1">Раздражительность</simpleAssociableChoice>
+			<simpleAssociableChoice identifier="M" matchMax="1">Размножение</simpleAssociableChoice>
+			<simpleAssociableChoice identifier="N" matchMax="1">Питание</simpleAssociableChoice>
+			<simpleAssociableChoice identifier="S" matchMax="1">Движение</simpleAssociableChoice>
+		</associateInteraction>
+	</itemBody>
+</assessmentItem>

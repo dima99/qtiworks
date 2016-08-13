@@ -34,10 +34,18 @@ import java.net.URI;
 public final class ValidationExample {
 
     public static void main(final String[] args) throws Exception {
-        runExample("classpath:/validation/variableRefs.xml"); /* See src/main/resources/validation/variableRefs.xml */
-        runExample("classpath:/validation/notSchemaValid.xml"); /* Etc... */
-        runExample("classpath:/validation/modelBuildFailure.xml");
-        runExample("classpath:/validation/additionalValidationFailure.xml");
+        //runExample("classpath:/validation/variableRefs.xml"); /* See src/main/resources/validation/variableRefs.xml */
+        //runExample("classpath:/validation/notSchemaValid.xml"); /* Etc... */
+        //runExample("classpath:/validation/modelBuildFailure.xml");
+        //runExample("classpath:/validation/additionalValidationFailure.xml");
+
+        runExample("classpath:/validation/qti_b086648.xml");
+        runExample("classpath:/validation/qti_b088087.xml");
+        runExample("classpath:/validation/qti_b088089.xml");
+        runExample("classpath:/validation/qti_b088090.xml");
+        runExample("classpath:/validation/qti_b089875.xml");
+        runExample("classpath:/validation/qti_g_01_01.xml");
+
     }
 
     private static void runExample(final String location) {

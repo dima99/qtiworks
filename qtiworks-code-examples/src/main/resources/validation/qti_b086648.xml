@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p2  http://www.imsglobal.org/xsd/qti/qtiv2p2/imsqti_v2p2.xsd" identifier="textEntry" title="Слитное и раздельное написание с именами существительным 2" adaptive="false" timeDependent="false">
+	<responseDeclaration identifier="RESPONSE1" cardinality="single" baseType="string">
+		<correctResponse>
+			<value>невнимательности</value>
+		</correctResponse>
+		<mapping defaultValue="0">
+			<mapEntry mapKey="невнимательности" mappedValue="1"/>
+		</mapping>
+	</responseDeclaration>
+	<responseDeclaration identifier="RESPONSE2" cardinality="single" baseType="string">
+		<correctResponse>
+			<value>Не место</value>
+		</correctResponse>
+		<mapping defaultValue="0">
+			<mapEntry mapKey="Не место" mappedValue="1"/>
+			<mapEntry mapKey="не место" mappedValue="0,5"/>
+		</mapping>
+	</responseDeclaration>	
+	<responseDeclaration identifier="RESPONSE3" cardinality="single" baseType="string">
+		<correctResponse>
+			<value>нечисть</value>
+		</correctResponse>
+		<mapping defaultValue="0">
+			<mapEntry mapKey="нечисть" mappedValue="1"/>
+		</mapping>
+	</responseDeclaration>		
+	<responseDeclaration identifier="RESPONSE4" cardinality="single" baseType="string">
+		<correctResponse>
+			<value>Не погода</value>
+		</correctResponse>
+		<mapping defaultValue="0">
+			<mapEntry mapKey="Не погода" mappedValue="1"/>
+			<mapEntry mapKey="не погода" mappedValue="0,5"/>
+		</mapping>
+	</responseDeclaration>	
+	<responseDeclaration identifier="RESPONSE5" cardinality="single" baseType="string">
+		<correctResponse>
+			<value>нежелание</value>
+		</correctResponse>
+		<mapping defaultValue="0">
+			<mapEntry mapKey="нежелание" mappedValue="1"/>
+		</mapping>
+	</responseDeclaration>		
+	<responseDeclaration identifier="RESPONSE6" cardinality="single" baseType="string">
+		<correctResponse>
+			<value>не друг</value>
+		</correctResponse>
+		<mapping defaultValue="0">
+			<mapEntry mapKey="не друг" mappedValue="1"/>
+		</mapping>
+	</responseDeclaration>	
+	
+	<itemBody>
+		<p>Раскройте скобки, правильно употребляя <strong><i>не</i></strong> с именами существительным.</p>
+		<blockquote>
+		<ol>
+			<li>1. Ученик допустил ошибку из-за <textEntryInteraction responseIdentifier="RESPONSE1" expectedLength="15"/>. ((не)внимательность)</li>
+			<li>2. <textEntryInteraction responseIdentifier="RESPONSE2" expectedLength="15"/> красит человека, а человек &mdash; место. ((не)место).</li>
+			<li>3. В старину люди верили в леших, домовых и прочую  <textEntryInteraction responseIdentifier="RESPONSE3" expectedLength="15"/> ((не)чисть).</li>
+			<li>4. <textEntryInteraction responseIdentifier="RESPONSE4" expectedLength="15"/> задержала вас, а <textEntryInteraction responseIdentifier="RESPONSE5" expectedLength="15"/> трудиться. ((не)погода; (не)желание).</li>
+			<li>5. Этот человек мне <textEntryInteraction responseIdentifier="RESPONSE6" expectedLength="15"/> мы даже не знакомы. ((не)друг).</li>
+		</ol>
+		</blockquote>
+	</itemBody>
+</assessmentItem>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/imsqti_v2p1.xsd"
+	identifier="choice" title="Живой организм: строение и изучение 1" adaptive="false" timeDependent="false">
+	<responseDeclaration identifier="RESPONSE" cardinality="single" baseType="identifier">
+		<correctResponse>
+			<value>ChoiceA</value>
+		</correctResponse>
+	</responseDeclaration>
+	<itemBody>
+		<p>Выберите правильный ответ.</p>
+		<choiceInteraction responseIdentifier="RESPONSE" shuffle="false" maxChoices="1">
+			<prompt>Животные, также как и растения, </prompt>
+			<simpleChoice identifier="ChoiceA">растут и развиваются</simpleChoice>
+			<simpleChoice identifier="ChoiceB">растут в течение всей жизни</simpleChoice>
+			<simpleChoice identifier="ChoiceC">развиваются, но не растут</simpleChoice>
+			<simpleChoice identifier="ChoiceD">растут до определенного возраста</simpleChoice>
+		</choiceInteraction>
+	</itemBody>
+</assessmentItem>

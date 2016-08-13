@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p2  http://www.imsglobal.org/xsd/qti/qtiv2p2/imsqti_v2p2.xsd" identifier="gapMatch" title="Будем знакомы! Грамматика. Упражнение 1" adaptive="false" timeDependent="false">
+	<responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair">
+		<correctResponse>
+			<value>A1 G1</value>
+			<value>A2 G1</value>
+			<value>A3 G1</value>
+			<value>A4 G1</value>
+			<value>A5 G1</value>
+			<value>A6 G1</value>
+			<value>A7 G1</value>
+			<value>A8 G1</value>
+			<value>A9 G1</value>
+			<value>B1 G2</value>
+			<value>B2 G2</value>
+			<value>B3 G2</value>
+			<value>C1 G3</value>
+			<value>C2 G3</value>
+			<value>D1 G4</value>
+			<value>D2 G4</value>
+			<value>D3 G4</value>
+		</correctResponse>
+		<mapping defaultValue="-1" lowerBound="0">
+			<mapEntry mapKey="A1 G1" mappedValue="1"/>
+			<mapEntry mapKey="A2 G1" mappedValue="1"/>
+			<mapEntry mapKey="A3 G1" mappedValue="1"/>
+			<mapEntry mapKey="A4 G1" mappedValue="1"/>
+			<mapEntry mapKey="A5 G1" mappedValue="1"/>
+			<mapEntry mapKey="A6 G1" mappedValue="1"/>
+			<mapEntry mapKey="A7 G1" mappedValue="1"/>
+			<mapEntry mapKey="A8 G1" mappedValue="1"/>
+			<mapEntry mapKey="A9 G1" mappedValue="1"/>
+			<mapEntry mapKey="B1 G2" mappedValue="1"/>
+			<mapEntry mapKey="B2 G2" mappedValue="1"/>
+			<mapEntry mapKey="B3 G2" mappedValue="1"/>
+			<mapEntry mapKey="C1 G3" mappedValue="1"/>
+			<mapEntry mapKey="C2 G3" mappedValue="1"/>
+			<mapEntry mapKey="D1 G4" mappedValue="1"/>
+			<mapEntry mapKey="D2 G4" mappedValue="1"/>
+			<mapEntry mapKey="D3 G4" mappedValue="1"/>
+		</mapping>
+	</responseDeclaration>
+	<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+	<itemBody>
+		<gapMatchInteraction responseIdentifier="RESPONSE" shuffle="false">
+			<prompt>Put the words in the right columns.</prompt>
+			<gapText identifier="A1" matchMax="1">notepad</gapText>
+			<gapText identifier="A2" matchMax="1">cap</gapText>
+			<gapText identifier="A3" matchMax="1">bicycle</gapText>
+			<gapText identifier="A4" matchMax="1">glove</gapText>
+			<gapText identifier="A5" matchMax="1">atlas</gapText>
+			<gapText identifier="A6" matchMax="1">ruler</gapText>
+			<gapText identifier="A7" matchMax="1">boy</gapText>
+			<gapText identifier="A8" matchMax="1">stamp</gapText>
+			<gapText identifier="A9" matchMax="1">pen</gapText>
+			<gapText identifier="B1" matchMax="1">whatch</gapText>
+			<gapText identifier="B2" matchMax="1">match</gapText>
+			<gapText identifier="B3" matchMax="1">box</gapText>
+			<gapText identifier="C1" matchMax="1">bus</gapText>
+			<gapText identifier="C2" matchMax="1">baby</gapText>
+			<gapText identifier="D1" matchMax="1">knife</gapText>
+			<gapText identifier="D2" matchMax="1">country</gapText>
+			<gapText identifier="D3" matchMax="1">scarf</gapText>
+			
+			<blockquote>
+				<table>
+					<thead>
+					<tr>
+						<th>-s</th>
+						<th>-es</th>
+						<th>-ies</th>
+						<th>-ves</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><p><gap identifier="G1"/></p></td>
+						<td><p><gap identifier="G2"/></p></td>
+						<td><p><gap identifier="G3"/></p></td>
+						<td><p><gap identifier="G4"/></p></td>
+					</tr>
+					</tbody>
+				</table>
+			</blockquote>
+		</gapMatchInteraction>
+	</itemBody>
+</assessmentItem>
