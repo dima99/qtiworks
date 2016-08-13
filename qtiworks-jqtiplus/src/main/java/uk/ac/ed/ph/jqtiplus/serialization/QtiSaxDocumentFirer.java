@@ -248,7 +248,7 @@ public final class QtiSaxDocumentFirer {
 
         if (currentQtiDepth==0) {
             /* This is the opening a new QTI subtree. Decide on correct namespace for native QTI elements */
-            currentQtiNamespace = (node instanceof ResultNode) ? QtiConstants.QTI_RESULT_21_NAMESPACE_URI : QtiConstants.QTI_21_NAMESPACE_URI;
+            currentQtiNamespace = (node instanceof ResultNode) ? QtiConstants.QTI_RESULT_22_NAMESPACE_URI : QtiConstants.QTI_22_NAMESPACE_URI;
         }
 
         /* Decide on element namespace */
@@ -362,10 +362,10 @@ public final class QtiSaxDocumentFirer {
             namespaceUri = currentQtiNamespace;
         }
         else if (node instanceof ResultNode) {
-            namespaceUri = QtiConstants.QTI_RESULT_21_NAMESPACE_URI;
+            namespaceUri = QtiConstants.QTI_RESULT_22_NAMESPACE_URI;
         }
         else {
-            namespaceUri = QtiConstants.QTI_21_NAMESPACE_URI;
+            namespaceUri = QtiConstants.QTI_22_NAMESPACE_URI;
         }
         return namespaceUri;
     }
@@ -380,11 +380,11 @@ public final class QtiSaxDocumentFirer {
         }
         else if (node instanceof ResultNode) {
             /* (These Nodes have a different schema) */
-            schemaLocation = QtiConstants.QTI_RESULT_21_SCHEMA_LOCATION;
+            schemaLocation = QtiConstants.QTI_RESULT_22_SCHEMA_LOCATION;
         }
         else {
             /* (NB: We are *always* writing out QTI 2.1) */
-            schemaLocation = QtiConstants.QTI_21_SCHEMA_LOCATION;
+            schemaLocation = QtiConstants.QTI_22_SCHEMA_LOCATION;
         }
         return schemaLocation;
     }

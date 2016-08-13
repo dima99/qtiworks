@@ -5,9 +5,9 @@ Example of an assessmentItem that passes all of the QTIWorks validation checks.
 (Actually, this one was initially created to test various *OrVariableRef scenarios.)
 
 -->
-<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1"
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/imsqti_v2p1.xsd"
+  xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p2 http://www.imsglobal.org/xsd/imsqti_v2p2.xsd"
   identifier="minimal" title="*OrVariableRef Examples" adaptive="false" timeDependent="false">
   <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float">
     <defaultValue>

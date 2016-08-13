@@ -83,28 +83,30 @@ public final class JqtiExtensionManager {
         return extensionNamepaceInfoMap;
     }
 
-    private Map<String, ExtensionNamespaceInfo> buildExtensionNamespaceInfoMap() {
-        final Map<String, ExtensionNamespaceInfo> result = new HashMap<String, ExtensionNamespaceInfo>();
-        for (final JqtiExtensionPackage<?> extensionPackage : jqtiExtensionPackages) {
-            for (final Entry<String, ExtensionNamespaceInfo> entry : extensionPackage.getNamespaceInfoMap().entrySet()) {
-                final String namespaceUri = entry.getKey();
-                if (QtiConstants.QTI_21_NAMESPACE_URI.equals(namespaceUri)
-                        || QtiConstants.QTI_20_NAMESPACE_URI.equals(namespaceUri)
-                        || QtiConstants.QTI_RESULT_21_NAMESPACE_URI.equals(namespaceUri)) {
-                    throw new IllegalArgumentException("Namespace URI " + namespaceUri
-                            + " is reserved for QTI and may not be used for extensions");
-                }
-                if (result.containsKey(namespaceUri)) {
-                    throw new IllegalArgumentException("Namespace URI " + namespaceUri
-                            + " is used by more than one extension in " + jqtiExtensionPackages
-                            + ". We can only support one at a time.");
-                }
-                final ExtensionNamespaceInfo extensionNamespaceInfo = entry.getValue();
-                result.put(namespaceUri, extensionNamespaceInfo);
-            }
-        }
-        return result;
-    }
+	private Map<String, ExtensionNamespaceInfo> buildExtensionNamespaceInfoMap() {
+		final Map<String, ExtensionNamespaceInfo> result = new HashMap<String, ExtensionNamespaceInfo>();
+		for (final JqtiExtensionPackage<?> extensionPackage : jqtiExtensionPackages) {
+			for (final Entry<String, ExtensionNamespaceInfo> entry : extensionPackage.getNamespaceInfoMap().entrySet()) {
+				final String namespaceUri = entry.getKey();
+				if (QtiConstants.QTI_21_NAMESPACE_URI.equals(namespaceUri)
+						|| QtiConstants.QTI_20_NAMESPACE_URI.equals(namespaceUri)
+						|| QtiConstants.QTI_RESULT_21_NAMESPACE_URI.equals(namespaceUri)
+						|| QtiConstants.QTI_22_NAMESPACE_URI.equals(namespaceUri)
+						|| QtiConstants.QTI_RESULT_22_NAMESPACE_URI.equals(namespaceUri)) {
+					throw new IllegalArgumentException("Namespace URI " + namespaceUri
+							+ " is reserved for QTI and may not be used for extensions");
+				}
+				if (result.containsKey(namespaceUri)) {
+					throw new IllegalArgumentException("Namespace URI " + namespaceUri
+							+ " is used by more than one extension in " + jqtiExtensionPackages
+							+ ". We can only support one at a time.");
+				}
+				final ExtensionNamespaceInfo extensionNamespaceInfo = entry.getValue();
+				result.put(namespaceUri, extensionNamespaceInfo);
+			}
+		}
+		return result;
+	}
 
     //---------------------------------------------------------------------
     // Extension package lifecycle management
