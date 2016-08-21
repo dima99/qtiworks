@@ -66,7 +66,7 @@ public final class IdentifierMultipleAttribute extends MultipleAttribute<Identif
         /* Spec suggests a maximum length for identnfiers. We don't enforce this, but will issue a validation warning */
         if (value!=null) {
             for (final Identifier item : value) {
-                if (item.toString().length() > 32) {
+                if (item.toString().length() > QtiConstants.IDENTIFIER_MAX_LENGTH_RECOMMENDATION) {
                     context.fireAttributeValidationWarning(this,
                             "The identifier " + item
                             + " are recommended to be no more than "
