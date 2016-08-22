@@ -91,5 +91,5 @@ public final class QtiConstants {
     public static final String COMPLETION_STATUS_INCOMPLETE = "incomplete";
 
     /** Recommended maximum length for an {@link Identifier} */
-    public static final int IDENTIFIER_MAX_LENGTH_RECOMMENDATION = 32;
+    public static final int IDENTIFIER_MAX_LENGTH_RECOMMENDATION = 64;
 }
