@@ -107,7 +107,7 @@ public final class XsltFactoryUtilities {
              * This appears safe to do without having to check the underlying processor.
              */
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", indentString);
-            transformer.setOutputProperty("{http://saxon.sf.net/}indent-spaces", indentString);
+            //transformer.setOutputProperty("{http://saxon.sf.net/}indent-spaces", indentString);
         }
         else {
             transformer.setOutputProperty(OutputKeys.INDENT, "no");
