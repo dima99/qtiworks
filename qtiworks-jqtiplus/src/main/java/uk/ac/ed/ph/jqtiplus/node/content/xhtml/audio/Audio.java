@@ -31,61 +31,68 @@
  * QTItools is (c) 2008, University of Southampton.
  * MathAssessEngine is (c) 2010, University of Edinburgh.
  */
-package uk.ac.ed.ph.jqtiplus.node.content.xhtml.text;
+package uk.ac.ed.ph.jqtiplus.node.content.xhtml.audio;
 
 import uk.ac.ed.ph.jqtiplus.attribute.value.StringAttribute;
-import uk.ac.ed.ph.jqtiplus.group.content.FlowGroup;
+import uk.ac.ed.ph.jqtiplus.attribute.value.UriAttribute;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.AbstractFlowBodyElement;
-import uk.ac.ed.ph.jqtiplus.node.content.basic.BlockStatic;
-import uk.ac.ed.ph.jqtiplus.node.content.basic.Flow;
-import uk.ac.ed.ph.jqtiplus.node.content.basic.FlowStatic;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.AtomicInline;
 
-import java.util.List;
+import java.net.URI;
 
 /**
- * div
+ * Represents the <tt>img</tt> QTI class
  *
  * @author Jonathon Hare
  */
-public final class Div extends AbstractFlowBodyElement implements BlockStatic, FlowStatic {
+public final class Audio extends AbstractFlowBodyElement implements AtomicInline {
 
-    private static final long serialVersionUID = -3635119989161671687L;
+    private static final long serialVersionUID = 5705344980101577517L;
 
     /** Name of this class in xml schema. */
-    public static final String QTI_CLASS_NAME = "div";
+    public static final String QTI_CLASS_NAME = "audio";
 
-    /** Name of datatype attribute in xml schema. */
-    public static final String ATTR_DATA_TYPE_NAME = "data-type";
+    /** Name of src attribute in xml schema. */
+    public static final String ATTR_SRC_NAME = "src";
 
-    public Div(final QtiNode parent) {
+    /** Name of autoplay attribute in xml schema. */
+    public static final String ATTR_AUTOPLAY_NAME = "autoplay";
+
+    /** Name of longdesc attribute in xml schema. */
+    public static final String ATTR_LONGDESC_NAME = "longdesc";
+
+    public Audio(final QtiNode parent) {
         super(parent, QTI_CLASS_NAME);
 
-        getNodeGroups().add(new FlowGroup(this));
-        
-        getAttributes().add(new StringAttribute(this, ATTR_DATA_TYPE_NAME, false));
+        getAttributes().add(new UriAttribute(this, ATTR_SRC_NAME, true));
+        getAttributes().add(new StringAttribute(this, ATTR_AUTOPLAY_NAME, false));
+        getAttributes().add(new UriAttribute(this, ATTR_LONGDESC_NAME, false));
     }
 
-    public List<Flow> getFlows() {
-        return getNodeGroups().getFlowGroup().getFlows();
+    public URI getSrc() {
+        return getAttributes().getUriAttribute(ATTR_SRC_NAME).getComputedValue();
     }
 
-    /**
-     * Gets value of data-type attribute.
-     *
-     * @return value of data-type attribute
-     */
-	public String getDataType() {
-        return getAttributes().getStringAttribute(ATTR_DATA_TYPE_NAME).getComputedValue();
-	}
-    
-    /**
-     * Sets new value of data-type attribute.
-     *
-     * @param data-type new value of data-type attribute
-     */
-    public void setDataType(final String datatype) {
-        getAttributes().getStringAttribute(ATTR_DATA_TYPE_NAME).setValue(datatype);
+    public void setSrc(final URI src) {
+        getAttributes().getUriAttribute(ATTR_SRC_NAME).setValue(src);
     }
 
+
+    public String getAutoplay() {
+        return getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).getComputedValue();
+    }
+
+    public void setAutoplay(final String autoplay) {
+        getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).setValue(autoplay);
+    }
+
+
+    public URI getLongdesc() {
+        return getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).getComputedValue();
+    }
+
+    public void setLongdesc(final URI longdesc) {
+        getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).setValue(longdesc);
+    }
 }

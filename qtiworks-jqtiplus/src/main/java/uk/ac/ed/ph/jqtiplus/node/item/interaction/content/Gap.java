@@ -33,8 +33,11 @@
  */
 package uk.ac.ed.ph.jqtiplus.node.item.interaction.content;
 
+import java.util.List;
+
 import uk.ac.ed.ph.jqtiplus.attribute.value.BooleanAttribute;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.Inline;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.InlineStatic;
 import uk.ac.ed.ph.jqtiplus.node.item.interaction.choice.AssociableChoice;
 
@@ -84,5 +87,8 @@ public final class Gap extends AssociableChoice implements InlineStatic {
      */
     public boolean getRequired() {
         return getAttributes().getBooleanAttribute(ATTR_REQUIRED_NAME).getComputedNonNullValue();
+    }
+    public List<Inline> getInlines() {
+        return getNodeGroups().getInlineGroup().getInlines();
     }
 }

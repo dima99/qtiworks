@@ -35,6 +35,7 @@ package uk.ac.ed.ph.jqtiplus.node.item.interaction.choice;
 
 import uk.ac.ed.ph.jqtiplus.group.content.TextOrVariableGroup;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.BlockStatic;
 import uk.ac.ed.ph.jqtiplus.node.content.variable.TextOrVariable;
 
 import java.util.List;
@@ -46,7 +47,7 @@ import java.util.List;
  *
  * @author Jonathon Hare
  */
-public final class GapText extends GapChoice {
+public final class GapText extends GapChoice implements BlockStatic {
 
     private static final long serialVersionUID = -1368834690176977960L;
 

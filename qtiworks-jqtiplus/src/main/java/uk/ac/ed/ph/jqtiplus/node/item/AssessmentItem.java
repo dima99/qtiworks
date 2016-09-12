@@ -87,6 +87,9 @@ public class AssessmentItem extends AbstractNode implements AssessmentObject {
     /** Name of label attribute in xml schema. */
     public static final String ATTR_LABEL_NAME = "label";
 
+    /** Name of datatype attribute in xml schema. */
+    public static final String ATTR_DATA_TYPE_NAME = "data-type";
+
     /** Name of lang attribute in xml schema. */
     public static final String ATTR_LANG_NAME = "lang";
 
@@ -121,9 +124,10 @@ public class AssessmentItem extends AbstractNode implements AssessmentObject {
 
         getAttributes().add(new StringAttribute(this, ATTR_TITLE_NAME, true));
         getAttributes().add(new StringAttribute(this, ATTR_LABEL_NAME, false));
+        getAttributes().add(new StringAttribute(this, ATTR_DATA_TYPE_NAME, false));
         getAttributes().add(new StringAttribute(this, ATTR_LANG_NAME, XMLConstants.XML_NS_URI, null, false));
-        getAttributes().add(new BooleanAttribute(this, ATTR_ADAPTIVE_NAME, true));
-        getAttributes().add(new BooleanAttribute(this, ATTR_TIME_DEPENDENT_NAME, true));
+        getAttributes().add(new BooleanAttribute(this, ATTR_ADAPTIVE_NAME, false));
+        getAttributes().add(new BooleanAttribute(this, ATTR_TIME_DEPENDENT_NAME, false));
         getAttributes().add(new StringAttribute(this, ATTR_TOOL_NAME_NAME, false));
         getAttributes().add(new StringAttribute(this, ATTR_TOOL_VERSION_NAME, false));
 
@@ -233,6 +237,24 @@ public class AssessmentItem extends AbstractNode implements AssessmentObject {
      */
     public void setLabel(final String label) {
         getAttributes().getStringAttribute(ATTR_LABEL_NAME).setValue(label);
+    }
+
+    /**
+     * Gets value of data-type attribute.
+     *
+     * @return value of data-type attribute
+     */
+	public String getDataType() {
+        return getAttributes().getStringAttribute(ATTR_DATA_TYPE_NAME).getComputedValue();
+	}
+    
+    /**
+     * Sets new value of data-type attribute.
+     *
+     * @param data-type new value of data-type attribute
+     */
+    public void setDataType(final String datatype) {
+        getAttributes().getStringAttribute(ATTR_DATA_TYPE_NAME).setValue(datatype);
     }
 
     /**
@@ -555,4 +577,5 @@ public class AssessmentItem extends AbstractNode implements AssessmentObject {
                 + "(systemId=" + systemId
                 + ")";
     }
+
 }
