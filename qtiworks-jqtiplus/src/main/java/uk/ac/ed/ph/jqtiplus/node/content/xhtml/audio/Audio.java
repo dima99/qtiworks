@@ -39,6 +39,7 @@ import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.AbstractFlowBodyElement;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.BlockStatic;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.FlowStatic;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.InlineStatic;
 
 import java.net.URI;
 
@@ -47,7 +48,7 @@ import java.net.URI;
  *
  * @author Jonathon Hare
  */
-public final class Audio extends AbstractFlowBodyElement implements BlockStatic, FlowStatic {
+public final class Audio extends AbstractFlowBodyElement implements BlockStatic, FlowStatic, InlineStatic {
 
 	private static final long serialVersionUID = -2801698425305071555L;
 
