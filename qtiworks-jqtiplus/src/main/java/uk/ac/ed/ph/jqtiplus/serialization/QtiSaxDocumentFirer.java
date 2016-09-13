@@ -41,6 +41,7 @@ import uk.ac.ed.ph.jqtiplus.attribute.Attribute;
 import uk.ac.ed.ph.jqtiplus.attribute.ForeignAttribute;
 import uk.ac.ed.ph.jqtiplus.node.AbstractNode;
 import uk.ac.ed.ph.jqtiplus.node.ForeignElement;
+import uk.ac.ed.ph.jqtiplus.node.HTML5Element;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.expression.operator.CustomOperator;
 import uk.ac.ed.ph.jqtiplus.node.item.interaction.CustomInteraction;
@@ -358,6 +359,9 @@ public final class QtiSaxDocumentFirer {
         else if (node instanceof uk.ac.ed.ph.jqtiplus.node.content.mathml.Math) {
             namespaceUri = QtiConstants.MATHML_NAMESPACE_URI;
         }
+        else if (node instanceof HTML5Element) {
+            namespaceUri = QtiConstants.HTML5_NAMESPACE_URI;
+        }
         else if (currentQtiNamespace!=null) {
             namespaceUri = currentQtiNamespace;
         }
@@ -377,6 +381,9 @@ public final class QtiSaxDocumentFirer {
         }
         else if (node instanceof uk.ac.ed.ph.jqtiplus.node.content.mathml.Math) {
             schemaLocation = QtiConstants.MATHML_SCHEMA_LOCATION;
+        }
+        else if (node instanceof HTML5Element) {
+            schemaLocation = QtiConstants.HTML5_SCHEMA_LOCATION;
         }
         else if (node instanceof ResultNode) {
             /* (These Nodes have a different schema) */
@@ -423,6 +430,9 @@ public final class QtiSaxDocumentFirer {
             /* Check for use of MathML */
             if (node instanceof uk.ac.ed.ph.jqtiplus.node.content.mathml.Math) {
                 nonQtiElementNamespaceUris.add(QtiConstants.MATHML_NAMESPACE_URI);
+            }
+            else if (node instanceof HTML5Element) {
+                nonQtiElementNamespaceUris.add(QtiConstants.HTML5_NAMESPACE_URI);
             }
             /* Find any foreign namespaces (NB: MathML will appear here too if used) */
             else if (node instanceof ForeignElement) {

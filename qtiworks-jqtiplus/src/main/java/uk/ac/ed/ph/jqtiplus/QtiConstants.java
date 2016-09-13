@@ -57,6 +57,9 @@ public final class QtiConstants {
     public static final String CP_11_NAMESPACE_URI = "http://www.imsglobal.org/xsd/imscp_v1p1";
     public static final String CP_12_NAMESPACE_URI = "http://www.imsglobal.org/xsd/imscp_v1p2";
 
+    public static final String HTML5_NAMESPACE_URI = "http://www.imsglobal.org/xsd/imsqtiv2p2_html5_v1p0";
+    public static final String HTML5_SCHEMA_LOCATION = "http://www.imsglobal.org/xsd/qti/qtiv2p2/imsqtiv2p2p1_html5_v1p0.xsd";
+    
     public static final String MATHML_NAMESPACE_URI = "http://www.w3.org/1998/Math/MathML";
     public static final String MATHML_SCHEMA_LOCATION = "http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd";
 

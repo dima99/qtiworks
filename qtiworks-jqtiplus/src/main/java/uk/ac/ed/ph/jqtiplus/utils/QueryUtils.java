@@ -41,6 +41,7 @@ import uk.ac.ed.ph.jqtiplus.attribute.ForeignAttribute;
 import uk.ac.ed.ph.jqtiplus.group.NodeGroup;
 import uk.ac.ed.ph.jqtiplus.internal.util.Assert;
 import uk.ac.ed.ph.jqtiplus.node.ForeignElement;
+import uk.ac.ed.ph.jqtiplus.node.HTML5Element;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.content.BodyElement;
 import uk.ac.ed.ph.jqtiplus.node.expression.operator.CustomOperator;
@@ -175,6 +176,9 @@ public final class QueryUtils {
                 /* Consider node itself */
                 if (node instanceof uk.ac.ed.ph.jqtiplus.node.content.mathml.Math) {
                     elementNamespaceUris.add(QtiConstants.MATHML_NAMESPACE_URI);
+                }
+                else if (node instanceof HTML5Element) {
+                    elementNamespaceUris.add(QtiConstants.HTML5_NAMESPACE_URI);
                 }
                 else if (node instanceof ForeignElement) {
                     elementNamespaceUris.add(((ForeignElement) node).getNamespaceUri());

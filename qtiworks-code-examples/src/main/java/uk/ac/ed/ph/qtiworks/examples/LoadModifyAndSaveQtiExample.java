@@ -40,7 +40,6 @@ import uk.ac.ed.ph.jqtiplus.node.LoadingContext;
 import uk.ac.ed.ph.jqtiplus.node.content.ItemBody;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.TextRun;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.Div;
-import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.P;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.video.Video;
 import uk.ac.ed.ph.jqtiplus.node.item.AssessmentItem;
 import uk.ac.ed.ph.jqtiplus.node.item.CorrectResponse;
@@ -50,7 +49,6 @@ import uk.ac.ed.ph.jqtiplus.node.item.interaction.choice.SimpleChoice;
 import uk.ac.ed.ph.jqtiplus.node.item.response.declaration.ResponseDeclaration;
 import uk.ac.ed.ph.jqtiplus.node.item.response.processing.ResponseProcessing;
 import uk.ac.ed.ph.jqtiplus.node.shared.FieldValue;
-import uk.ac.ed.ph.jqtiplus.reading.QtiModelBuildingError;
 import uk.ac.ed.ph.jqtiplus.reading.QtiObjectReadResult;
 import uk.ac.ed.ph.jqtiplus.reading.QtiXmlInterpretationException;
 import uk.ac.ed.ph.jqtiplus.reading.QtiXmlReader;
@@ -60,26 +58,16 @@ import uk.ac.ed.ph.jqtiplus.value.BaseType;
 import uk.ac.ed.ph.jqtiplus.value.Cardinality;
 import uk.ac.ed.ph.jqtiplus.value.IdentifierValue;
 import uk.ac.ed.ph.jqtiplus.xmlutils.XmlResourceNotFoundException;
-import uk.ac.ed.ph.jqtiplus.xmlutils.XmlResourceReader;
 import uk.ac.ed.ph.jqtiplus.xmlutils.locators.ClassPathResourceLocator;
 import uk.ac.ed.ph.jqtiplus.xmlutils.locators.ResourceLocator;
 
 import java.io.StringReader;
-import java.io.StringWriter;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
@@ -176,7 +164,7 @@ public final class LoadModifyAndSaveQtiExample {
         documentBuilderFactory.setNamespaceAware(true);
         DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
 
-		String xmlString = "<c><p>dgf<span>dfg</span>dfg</p></c>";
+		String xmlString = "<c><p>dgf<span>dfg</span>dfg</p><video src=\"nnn\"/></c>";
 		Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
 
         final LoadingContext loadingContext = new LoadingContext() {
@@ -191,6 +179,8 @@ public final class LoadModifyAndSaveQtiExample {
 			}
         };
         div.load(doc.getDocumentElement(), loadingContext);
+        System.out.println(div.getFlows().get(0));
+        System.out.println(div.getFlows().get(1));
         
         Video video = new Video(itemBody);
         video.setSrc(new URI("aaa"));

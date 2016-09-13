@@ -35,6 +35,7 @@ package uk.ac.ed.ph.jqtiplus.node.content.xhtml.audio;
 
 import uk.ac.ed.ph.jqtiplus.attribute.value.StringAttribute;
 import uk.ac.ed.ph.jqtiplus.attribute.value.UriAttribute;
+import uk.ac.ed.ph.jqtiplus.node.HTML5Element;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.AbstractFlowBodyElement;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.BlockStatic;
@@ -48,7 +49,7 @@ import java.net.URI;
  *
  * @author Jonathon Hare
  */
-public final class Audio extends AbstractFlowBodyElement implements BlockStatic, FlowStatic, InlineStatic {
+public final class Audio extends AbstractFlowBodyElement implements BlockStatic, FlowStatic, InlineStatic, HTML5Element {
 
 	private static final long serialVersionUID = -2801698425305071555L;
 
