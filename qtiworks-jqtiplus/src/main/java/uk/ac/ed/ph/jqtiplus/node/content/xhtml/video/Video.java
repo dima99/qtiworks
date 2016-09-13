@@ -37,7 +37,8 @@ import uk.ac.ed.ph.jqtiplus.attribute.value.StringAttribute;
 import uk.ac.ed.ph.jqtiplus.attribute.value.UriAttribute;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.AbstractFlowBodyElement;
-import uk.ac.ed.ph.jqtiplus.node.content.basic.AtomicInline;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.BlockStatic;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.FlowStatic;
 
 import java.net.URI;
 
@@ -46,92 +47,88 @@ import java.net.URI;
  *
  * @author Jonathon Hare
  */
-public final class Video extends AbstractFlowBodyElement implements AtomicInline {
+public final class Video extends AbstractFlowBodyElement implements BlockStatic, FlowStatic {
 
-    private static final long serialVersionUID = 5705344980101577518L;
+	private static final long serialVersionUID = -7133943546084528091L;
 
-    /** Name of this class in xml schema. */
-    public static final String QTI_CLASS_NAME = "video";
+	/** Name of this class in xml schema. */
+	public static final String QTI_CLASS_NAME = "video";
 
-    /** Name of src attribute in xml schema. */
-    public static final String ATTR_SRC_NAME = "src";
+	/** Name of src attribute in xml schema. */
+	public static final String ATTR_SRC_NAME = "src";
 
-    /** Name of autoplay attribute in xml schema. */
-    public static final String ATTR_AUTOPLAY_NAME = "autoplay";
+	/** Name of autoplay attribute in xml schema. */
+	public static final String ATTR_AUTOPLAY_NAME = "autoplay";
 
-    /** Name of poster attribute in xml schema. */
-    public static final String ATTR_POSTER_NAME = "poster";
+	/** Name of poster attribute in xml schema. */
+	public static final String ATTR_POSTER_NAME = "poster";
 
-    /** Name of longdesc attribute in xml schema. */
-    public static final String ATTR_LONGDESC_NAME = "longdesc";
+	/** Name of longdesc attribute in xml schema. */
+	public static final String ATTR_LONGDESC_NAME = "longdesc";
 
-    /** Name of height attribute in xml schema. */
-    public static final String ATTR_HEIGHT_NAME = "height";
+	/** Name of height attribute in xml schema. */
+	public static final String ATTR_HEIGHT_NAME = "height";
 
-    /** Name of width attribute in xml schema. */
-    public static final String ATTR_WIDTH_NAME = "width";
+	/** Name of width attribute in xml schema. */
+	public static final String ATTR_WIDTH_NAME = "width";
 
-    public Video(final QtiNode parent) {
-        super(parent, QTI_CLASS_NAME);
+	public Video(final QtiNode parent) {
+		super(parent, QTI_CLASS_NAME);
 
-        getAttributes().add(new UriAttribute(this, ATTR_SRC_NAME, true));
-        getAttributes().add(new StringAttribute(this, ATTR_AUTOPLAY_NAME, false));
-        getAttributes().add(new UriAttribute(this, ATTR_POSTER_NAME, false));
-        getAttributes().add(new UriAttribute(this, ATTR_LONGDESC_NAME, false));
-        getAttributes().add(new StringAttribute(this, ATTR_HEIGHT_NAME, false));
-        getAttributes().add(new StringAttribute(this, ATTR_WIDTH_NAME, false));
-    }
+		getAttributes().add(new UriAttribute(this, ATTR_SRC_NAME, true));
+		getAttributes().add(new StringAttribute(this, ATTR_AUTOPLAY_NAME, false));
+		getAttributes().add(new UriAttribute(this, ATTR_POSTER_NAME, false));
+		getAttributes().add(new UriAttribute(this, ATTR_LONGDESC_NAME, false));
+		getAttributes().add(new StringAttribute(this, ATTR_HEIGHT_NAME, false));
+		getAttributes().add(new StringAttribute(this, ATTR_WIDTH_NAME, false));
+	}
 
-    public URI getSrc() {
-        return getAttributes().getUriAttribute(ATTR_SRC_NAME).getComputedValue();
-    }
+	public URI getSrc() {
+		return getAttributes().getUriAttribute(ATTR_SRC_NAME).getComputedValue();
+	}
 
-    public void setSrc(final URI src) {
-        getAttributes().getUriAttribute(ATTR_SRC_NAME).setValue(src);
-    }
+	public void setSrc(final URI src) {
+		getAttributes().getUriAttribute(ATTR_SRC_NAME).setValue(src);
+	}
 
+	public String getAutoplay() {
+		return getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).getComputedValue();
+	}
 
-    public String getAutoplay() {
-        return getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).getComputedValue();
-    }
+	public void setAutoplay(final String autoplay) {
+		getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).setValue(autoplay);
+	}
 
-    public void setAutoplay(final String autoplay) {
-        getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).setValue(autoplay);
-    }
+	public URI getPoster() {
+		return getAttributes().getUriAttribute(ATTR_POSTER_NAME).getComputedValue();
+	}
 
+	public void setPoster(final URI poster) {
+		getAttributes().getUriAttribute(ATTR_POSTER_NAME).setValue(poster);
+	}
 
-    public URI getPoster() {
-        return getAttributes().getUriAttribute(ATTR_POSTER_NAME).getComputedValue();
-    }
+	public URI getLongdesc() {
+		return getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).getComputedValue();
+	}
 
-    public void setPoster(final URI poster) {
-        getAttributes().getUriAttribute(ATTR_POSTER_NAME).setValue(poster);
-    }
+	public void setLongdesc(final URI longdesc) {
+		getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).setValue(longdesc);
+	}
 
+	public String getHeight() {
+		return getAttributes().getStringAttribute(ATTR_HEIGHT_NAME).getComputedValue();
+	}
 
-    public URI getLongdesc() {
-        return getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).getComputedValue();
-    }
+	public void setHeight(final String height) {
+		getAttributes().getStringAttribute(ATTR_HEIGHT_NAME).setValue(height);
+	}
 
-    public void setLongdesc(final URI longdesc) {
-        getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).setValue(longdesc);
-    }
+	public String getWidth() {
+		return getAttributes().getStringAttribute(ATTR_WIDTH_NAME).getComputedValue();
+	}
 
+	public void setWidth(final String width) {
+		getAttributes().getStringAttribute(ATTR_WIDTH_NAME).setValue(width);
+	}
 
-    public String getHeight() {
-        return getAttributes().getStringAttribute(ATTR_HEIGHT_NAME).getComputedValue();
-    }
-
-    public void setHeight(final String height) {
-        getAttributes().getStringAttribute(ATTR_HEIGHT_NAME).setValue(height);
-    }
-
-
-    public String getWidth() {
-        return getAttributes().getStringAttribute(ATTR_WIDTH_NAME).getComputedValue();
-    }
-
-    public void setWidth(final String width) {
-        getAttributes().getStringAttribute(ATTR_WIDTH_NAME).setValue(width);
-    }
 }

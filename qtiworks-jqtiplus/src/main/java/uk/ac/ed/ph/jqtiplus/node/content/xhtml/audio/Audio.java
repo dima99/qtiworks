@@ -37,7 +37,8 @@ import uk.ac.ed.ph.jqtiplus.attribute.value.StringAttribute;
 import uk.ac.ed.ph.jqtiplus.attribute.value.UriAttribute;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.AbstractFlowBodyElement;
-import uk.ac.ed.ph.jqtiplus.node.content.basic.AtomicInline;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.BlockStatic;
+import uk.ac.ed.ph.jqtiplus.node.content.basic.FlowStatic;
 
 import java.net.URI;
 
@@ -46,53 +47,52 @@ import java.net.URI;
  *
  * @author Jonathon Hare
  */
-public final class Audio extends AbstractFlowBodyElement implements AtomicInline {
+public final class Audio extends AbstractFlowBodyElement implements BlockStatic, FlowStatic {
 
-    private static final long serialVersionUID = 5705344980101577517L;
+	private static final long serialVersionUID = -2801698425305071555L;
 
-    /** Name of this class in xml schema. */
-    public static final String QTI_CLASS_NAME = "audio";
+	/** Name of this class in xml schema. */
+	public static final String QTI_CLASS_NAME = "audio";
 
-    /** Name of src attribute in xml schema. */
-    public static final String ATTR_SRC_NAME = "src";
+	/** Name of src attribute in xml schema. */
+	public static final String ATTR_SRC_NAME = "src";
 
-    /** Name of autoplay attribute in xml schema. */
-    public static final String ATTR_AUTOPLAY_NAME = "autoplay";
+	/** Name of autoplay attribute in xml schema. */
+	public static final String ATTR_AUTOPLAY_NAME = "autoplay";
 
-    /** Name of longdesc attribute in xml schema. */
-    public static final String ATTR_LONGDESC_NAME = "longdesc";
+	/** Name of longdesc attribute in xml schema. */
+	public static final String ATTR_LONGDESC_NAME = "longdesc";
 
-    public Audio(final QtiNode parent) {
-        super(parent, QTI_CLASS_NAME);
+	public Audio(final QtiNode parent) {
+		super(parent, QTI_CLASS_NAME);
 
-        getAttributes().add(new UriAttribute(this, ATTR_SRC_NAME, true));
-        getAttributes().add(new StringAttribute(this, ATTR_AUTOPLAY_NAME, false));
-        getAttributes().add(new UriAttribute(this, ATTR_LONGDESC_NAME, false));
-    }
+		getAttributes().add(new UriAttribute(this, ATTR_SRC_NAME, true));
+		getAttributes().add(new StringAttribute(this, ATTR_AUTOPLAY_NAME, false));
+		getAttributes().add(new UriAttribute(this, ATTR_LONGDESC_NAME, false));
+	}
 
-    public URI getSrc() {
-        return getAttributes().getUriAttribute(ATTR_SRC_NAME).getComputedValue();
-    }
+	public URI getSrc() {
+		return getAttributes().getUriAttribute(ATTR_SRC_NAME).getComputedValue();
+	}
 
-    public void setSrc(final URI src) {
-        getAttributes().getUriAttribute(ATTR_SRC_NAME).setValue(src);
-    }
+	public void setSrc(final URI src) {
+		getAttributes().getUriAttribute(ATTR_SRC_NAME).setValue(src);
+	}
 
+	public String getAutoplay() {
+		return getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).getComputedValue();
+	}
 
-    public String getAutoplay() {
-        return getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).getComputedValue();
-    }
+	public void setAutoplay(final String autoplay) {
+		getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).setValue(autoplay);
+	}
 
-    public void setAutoplay(final String autoplay) {
-        getAttributes().getStringAttribute(ATTR_AUTOPLAY_NAME).setValue(autoplay);
-    }
+	public URI getLongdesc() {
+		return getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).getComputedValue();
+	}
 
+	public void setLongdesc(final URI longdesc) {
+		getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).setValue(longdesc);
+	}
 
-    public URI getLongdesc() {
-        return getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).getComputedValue();
-    }
-
-    public void setLongdesc(final URI longdesc) {
-        getAttributes().getUriAttribute(ATTR_LONGDESC_NAME).setValue(longdesc);
-    }
 }

@@ -33,9 +33,15 @@
  */
 package uk.ac.ed.ph.qtiworks.examples;
 
+import uk.ac.ed.ph.jqtiplus.JqtiExtensionManager;
 import uk.ac.ed.ph.jqtiplus.SimpleJqtiFacade;
+import uk.ac.ed.ph.jqtiplus.exception.QtiModelException;
+import uk.ac.ed.ph.jqtiplus.node.LoadingContext;
 import uk.ac.ed.ph.jqtiplus.node.content.ItemBody;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.TextRun;
+import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.Div;
+import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.P;
+import uk.ac.ed.ph.jqtiplus.node.content.xhtml.video.Video;
 import uk.ac.ed.ph.jqtiplus.node.item.AssessmentItem;
 import uk.ac.ed.ph.jqtiplus.node.item.CorrectResponse;
 import uk.ac.ed.ph.jqtiplus.node.item.interaction.ChoiceInteraction;
@@ -44,18 +50,38 @@ import uk.ac.ed.ph.jqtiplus.node.item.interaction.choice.SimpleChoice;
 import uk.ac.ed.ph.jqtiplus.node.item.response.declaration.ResponseDeclaration;
 import uk.ac.ed.ph.jqtiplus.node.item.response.processing.ResponseProcessing;
 import uk.ac.ed.ph.jqtiplus.node.shared.FieldValue;
+import uk.ac.ed.ph.jqtiplus.reading.QtiModelBuildingError;
 import uk.ac.ed.ph.jqtiplus.reading.QtiObjectReadResult;
 import uk.ac.ed.ph.jqtiplus.reading.QtiXmlInterpretationException;
+import uk.ac.ed.ph.jqtiplus.reading.QtiXmlReader;
 import uk.ac.ed.ph.jqtiplus.serialization.QtiSerializer;
 import uk.ac.ed.ph.jqtiplus.types.Identifier;
 import uk.ac.ed.ph.jqtiplus.value.BaseType;
 import uk.ac.ed.ph.jqtiplus.value.Cardinality;
 import uk.ac.ed.ph.jqtiplus.value.IdentifierValue;
 import uk.ac.ed.ph.jqtiplus.xmlutils.XmlResourceNotFoundException;
+import uk.ac.ed.ph.jqtiplus.xmlutils.XmlResourceReader;
 import uk.ac.ed.ph.jqtiplus.xmlutils.locators.ClassPathResourceLocator;
 import uk.ac.ed.ph.jqtiplus.xmlutils.locators.ResourceLocator;
 
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
 
 /**
  * This example builds a JQTI+ Object model from a bundled <code>minimal.xml</code> QTI XML file,
@@ -77,7 +103,7 @@ import java.net.URI;
  */
 public final class LoadModifyAndSaveQtiExample {
 
-    public static void main(final String[] args) throws Exception {
+	public static void main(final String[] args) throws Exception {
         /* We'll be loading a bundled example file called minimal.xml, which you can find
          * in src/main/resources and is included in the ClassPath when this project is built.
          * We use a ClassPathResourceLocator to load this, using the <code>classpath:</code>
@@ -141,6 +167,36 @@ public final class LoadModifyAndSaveQtiExample {
         /* Add a choiceInteraction with a prompt and 2 simpleChoices,
          * linked to the RESPONSE variable we declared above */
         final ItemBody itemBody = assessmentItem.getItemBody();
+        
+        Div div = new Div(itemBody);
+        div.setDataType("asdf");
+        itemBody.getBlocks().add(div);
+        
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        documentBuilderFactory.setNamespaceAware(true);
+        DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
+
+		String xmlString = "<c><p>dgf<span>dfg</span>dfg</p></c>";
+		Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
+
+        final LoadingContext loadingContext = new LoadingContext() {
+        	QtiXmlReader qtiXmlReader = new QtiXmlReader(); 
+
+        	@Override
+			public JqtiExtensionManager getJqtiExtensionManager() {
+				return qtiXmlReader.getJqtiExtensionManager();
+			}
+			@Override
+			public void modelBuildingError(QtiModelException exception, Node badNode) {
+			}
+        };
+        div.load(doc.getDocumentElement(), loadingContext);
+        
+        Video video = new Video(itemBody);
+        video.setSrc(new URI("aaa"));
+        video.setWidth("100%");
+        itemBody.getBlocks().add(video);
+        
         final ChoiceInteraction choiceInteraction = new ChoiceInteraction(itemBody);
         itemBody.getBlocks().add(choiceInteraction);
         choiceInteraction.setResponseIdentifier(responseDeclaration.getIdentifier());

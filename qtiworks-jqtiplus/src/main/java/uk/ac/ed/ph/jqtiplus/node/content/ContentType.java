@@ -53,6 +53,7 @@ import uk.ac.ed.ph.jqtiplus.node.content.variable.FeedbackInline;
 import uk.ac.ed.ph.jqtiplus.node.content.variable.PrintedVariable;
 import uk.ac.ed.ph.jqtiplus.node.content.variable.RubricBlock;
 import uk.ac.ed.ph.jqtiplus.node.content.variable.TextOrVariable;
+import uk.ac.ed.ph.jqtiplus.node.content.xhtml.audio.Audio;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.hypertext.A;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.image.Img;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.list.Dd;
@@ -104,6 +105,7 @@ import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.Samp;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.Span;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.Strong;
 import uk.ac.ed.ph.jqtiplus.node.content.xhtml.text.Var;
+import uk.ac.ed.ph.jqtiplus.node.content.xhtml.video.Video;
 import uk.ac.ed.ph.jqtiplus.node.item.interaction.AssociateInteraction;
 import uk.ac.ed.ph.jqtiplus.node.item.interaction.ChoiceInteraction;
 import uk.ac.ed.ph.jqtiplus.node.item.interaction.CustomInteraction;
@@ -592,6 +594,26 @@ public enum ContentType {
         @Override
         public QtiNode create(final QtiNode parent) {
             return new Img(parent);
+        }
+    },
+    /**
+     * video
+     */
+    VIDEO(Video.QTI_CLASS_NAME, Video.class) {
+
+        @Override
+        public QtiNode create(final QtiNode parent) {
+            return new Video(parent);
+        }
+    },
+    /**
+     * audio
+     */
+    AUDIO(Audio.QTI_CLASS_NAME, Audio.class) {
+
+        @Override
+        public QtiNode create(final QtiNode parent) {
+            return new Audio(parent);
         }
     },
     /**

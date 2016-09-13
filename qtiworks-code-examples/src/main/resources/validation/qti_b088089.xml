@@ -19,7 +19,7 @@
 	</responseDeclaration>
 	<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
 	<itemBody>
-		<associateInteraction responseIdentifier="RESPONSE" shuffle="true" maxAssociations="4">
+		<associateInteraction responseIdentifier="RESPONSE" shuffle="true" maxAssociations="4" data-type="aaa">
 			<prompt>Установите соответствие</prompt>
 			<simpleAssociableChoice identifier="CAT" matchMax="1"><p><img src="../c.png" alt="Кошка"/></p></simpleAssociableChoice>
 			<simpleAssociableChoice identifier="FROG" matchMax="1"><p><img src="../f.png" alt="Лягушка"/></p></simpleAssociableChoice>

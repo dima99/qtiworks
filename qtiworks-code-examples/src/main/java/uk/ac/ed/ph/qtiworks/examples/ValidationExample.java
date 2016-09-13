@@ -39,12 +39,12 @@ public final class ValidationExample {
         //runExample("classpath:/validation/modelBuildFailure.xml");
         //runExample("classpath:/validation/additionalValidationFailure.xml");
 
-        runExample("classpath:/validation/qti_b086648.xml");
-        runExample("classpath:/validation/qti_b088087.xml");
-        runExample("classpath:/validation/qti_b088089.xml");
-        runExample("classpath:/validation/qti_b088090.xml");
-        runExample("classpath:/validation/qti_b089875.xml");
-        runExample("classpath:/validation/qti_g_01_01.xml");
+        //runExample("classpath:/validation/qti_b086648.xml");
+        //runExample("classpath:/validation/qti_b088087.xml");
+        runExample("classpath:/validation/audio-video.xml");
+        //runExample("classpath:/validation/qti_b088090.xml");
+        //runExample("classpath:/validation/qti_b089875.xml");
+        //runExample("classpath:/validation/qti_g_01_01.xml");
 
     }
 
@@ -53,6 +53,7 @@ public final class ValidationExample {
         final URI inputUri = URI.create(location);
 
         System.out.println("Reading and validating assessment at " + location);
+
         final SimpleJqtiFacade simpleJqtiFacade = new SimpleJqtiFacade();
         final ItemValidationResult result = simpleJqtiFacade.loadResolveAndValidateItem(inputResourceLocator, inputUri);
         System.out.println("Validation result: " + ObjectDumper.dumpObject(result, DumpMode.DEEP));

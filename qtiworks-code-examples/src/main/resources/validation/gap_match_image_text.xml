@@ -1,0 +1,40 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p2  http://www.imsglobal.org/xsd/qti/qtiv2p2/imsqti_v2p2.xsd"
+	identifier="927ef099-d5c1-42ff-9326-6c59b381b12v" title="Заголовок теста" timeDependent="false">
+	<responseDeclaration identifier="RESPONSE1" cardinality="multiple" baseType="directedPair">
+		<correctResponse>
+			<value>G1 B</value>
+			<value>G2 C</value>
+			<value>G3 A</value>
+		</correctResponse>
+	</responseDeclaration>
+	<itemBody>
+			<video>
+				 <source src="movie.mp4" type="video/mp4" />
+			</video>
+	    		<div class="question-section" data-type="aaa">
+			<div class="question-text">
+				Подставьте подписи к изображениям
+			</div>
+			<a href="sss" dsadad="aaa"></a>
+			<gapMatchInteraction responseIdentifier="RESPONSE1" shuffle="false">
+				<gapText identifier="A" matchMax="1">Подпись 1</gapText>
+				<gapText identifier="B" matchMax="1">Подпись 2</gapText>
+				<gapText identifier="C" matchMax="1">Подпись 3</gapText>
+				<blockquote>
+					<p>
+						<img src="./sources/img1.png" alt="" />
+						<gap identifier="G1" />
+					</p>
+					<p>
+						<img src="./sources/img2.png" alt="" />
+						<gap identifier="G2" />
+					</p>
+					<p>
+						<img src="./sources/img3.png" alt="" />
+						<gap identifier="G3" />
+					</p>
+				</blockquote>
+			</gapMatchInteraction>
+		</div>
+	</itemBody>
+</assessmentItem>
