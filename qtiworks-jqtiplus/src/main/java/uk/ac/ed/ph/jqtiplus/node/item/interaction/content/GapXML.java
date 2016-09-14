@@ -33,9 +33,12 @@
  */
 package uk.ac.ed.ph.jqtiplus.node.item.interaction.content;
 
-import uk.ac.ed.ph.jqtiplus.attribute.value.BooleanAttribute;
+import java.util.List;
+
+import uk.ac.ed.ph.jqtiplus.group.content.TextOrVariableGroup;
 import uk.ac.ed.ph.jqtiplus.node.QtiNode;
 import uk.ac.ed.ph.jqtiplus.node.content.basic.InlineStatic;
+import uk.ac.ed.ph.jqtiplus.node.content.variable.TextOrVariable;
 import uk.ac.ed.ph.jqtiplus.node.item.interaction.choice.AssociableChoice;
 
 /**
@@ -47,42 +50,20 @@ import uk.ac.ed.ph.jqtiplus.node.item.interaction.choice.AssociableChoice;
  *
  * @author Jonathon Hare
  */
-public final class Gap extends AssociableChoice implements InlineStatic {
+public final class GapXML extends AssociableChoice implements InlineStatic {
 
-    private static final long serialVersionUID = 8587068031186931243L;
+    private static final long serialVersionUID = 8587068031186931244L;
 
     /** Name of this class in xml schema. */
     public static final String QTI_CLASS_NAME = "gap";
 
-    /** Name of required attribute in xml schema. */
-    public static final String ATTR_REQUIRED_NAME = "required";
-
-    /** Default value of required attribute. */
-    public static final boolean ATTR_REQUIRED_DEFAULT_VALUE = false;
-
-    public Gap(final QtiNode parent) {
+    public GapXML(final QtiNode parent) {
         super(parent, QTI_CLASS_NAME);
 
-        getAttributes().add(new BooleanAttribute(this, ATTR_REQUIRED_NAME, ATTR_REQUIRED_DEFAULT_VALUE, false));
+        getNodeGroups().add(new TextOrVariableGroup(this));
     }
 
-    /**
-     * Sets new value of required attribute.
-     *
-     * @param required new value of required attribute
-     * @see #getRequired
-     */
-    public void setRequired(final Boolean required) {
-        getAttributes().getBooleanAttribute(ATTR_REQUIRED_NAME).setValue(required);
-    }
-
-    /**
-     * Gets value of required attribute.
-     *
-     * @return value of required attribute
-     * @see #setRequired
-     */
-    public boolean getRequired() {
-        return getAttributes().getBooleanAttribute(ATTR_REQUIRED_NAME).getComputedNonNullValue();
+    public List<TextOrVariable> getTextOrVariables() {
+        return getNodeGroups().getTextOrVariableGroup().getTextOrVariables();
     }
 }
