@@ -164,7 +164,7 @@ public final class LoadModifyAndSaveQtiExample {
         documentBuilderFactory.setNamespaceAware(true);
         DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
 
-		String xmlString = "<c><p>dgf<span>dfg</span>dfg</p><video src=\"nnn\"/></c>";
+		String xmlString = "<c><table><thead></thead><tbody><tr><td>gfgf</td></tr></tbody></table></c>";
 		Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
 
         final LoadingContext loadingContext = new LoadingContext() {
@@ -179,8 +179,8 @@ public final class LoadModifyAndSaveQtiExample {
 			}
         };
         div.load(doc.getDocumentElement(), loadingContext);
-        System.out.println(div.getFlows().get(0));
-        System.out.println(div.getFlows().get(1));
+        //System.out.println(div.getFlows().get(0));
+        //System.out.println(div.getFlows().get(1));
         
         Video video = new Video(itemBody);
         video.setSrc(new URI("aaa"));
