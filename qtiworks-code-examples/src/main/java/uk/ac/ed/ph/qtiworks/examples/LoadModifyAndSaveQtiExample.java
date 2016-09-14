@@ -164,7 +164,7 @@ public final class LoadModifyAndSaveQtiExample {
         documentBuilderFactory.setNamespaceAware(true);
         DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
 
-		String xmlString = "<c><table><thead></thead><tbody><tr><td>gfgf</td></tr></tbody></table></c>";
+		String xmlString = "<c><table><tbody><tr><td>gfgf</td></tr></tbody></table></c>";
 		Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
 
         final LoadingContext loadingContext = new LoadingContext() {

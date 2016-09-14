@@ -41,7 +41,7 @@ public final class ValidationExample {
 
         //runExample("classpath:/validation/qti_b086648.xml");
         //runExample("classpath:/validation/qti_b088087.xml");
-        runExample("classpath:/validation/audio-video.xml");
+        runExample("classpath:/validation/table.xml");
         //runExample("classpath:/validation/qti_b088090.xml");
         //runExample("classpath:/validation/qti_b089875.xml");
         //runExample("classpath:/validation/qti_g_01_01.xml");

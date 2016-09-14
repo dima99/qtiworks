@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2"
+                identifier="minimal"
+                title="Minimal QTI 2.1 Example"
+                adaptive="false"
+                timeDependent="false"
+                xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p2 http://www.imsglobal.org/xsd/imsqti_v2p2.xsd">
+   <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="identifier">
+      <correctResponse>
+         <value>CHOICEA</value>
+      </correctResponse>
+   </responseDeclaration>
+   <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float">
+      <defaultValue>
+         <value>0.0</value>
+      </defaultValue>
+   </outcomeDeclaration>
+   <itemBody>
+      <p data-type="aaaa" fgdsfs="fffff">Minimal Example</p>
+      <div>
+         <table>
+            <tbody>
+               <tr>
+                  <th>sdfdsf</th>
+               </tr>
+               <tr>
+                  <td>sdfsdf</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <video xmlns="http://www.imsglobal.org/xsd/imsqtiv2p2_html5_v1p0" src="aaa"
+             width="100"/>
+      <choiceInteraction responseIdentifier="RESPONSE" shuffle="true" maxChoices="1">
+         <prompt>Pick the correct answer</prompt>
+         <simpleChoice identifier="CHOICE1">Choice 1</simpleChoice>
+         <simpleChoice identifier="CHOICE2">Choice 2</simpleChoice>
+      </choiceInteraction>
+   </itemBody>
+   <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+</assessmentItem>
